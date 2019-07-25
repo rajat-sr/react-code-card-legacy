@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import CodeCard from './components/CodeCard';
 
-const code = `const terminal = StripeTerminal.create({
+const codeToDisplayInCard = `const terminal = StripeTerminal.create({
   onFetchConnectionToken: server.fetchConnectionToken,
 });
 
@@ -22,4 +22,4 @@ const cart = {
 
 terminal.setReaderDisplay({ type: 'cart', cart });`;
 
-render(<CodeCard code={code} language={'javascript'} />, document.getElementById('root'));
+render(<CodeCard code={codeToDisplayInCard} language={'javascript'} />, document.getElementById('root'));
