@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import CodeCard from './CodeCard';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const code = `const terminal = StripeTerminal.create({
+  onFetchConnectionToken: server.fetchConnectionToken,
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const result = await terminal.discoverReaders();
+const reader = result.discoveredReaders[0];
+await terminal.connectReader(reader);
+
+const item = {
+  description: 'High Growth Handbook',
+  amount: 2000,
+  quantity: 1,
+};
+const cart = {
+  lineItems: [item],
+  currency: 'usd',
+};
+
+terminal.setReaderDisplay({ type: 'cart', cart });`;
+
+ReactDOM.render(<CodeCard code={code} language={'javascript'} />, document.getElementById('root'));
